@@ -249,7 +249,8 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,osx,windows
 
-out/*
+out/*.mp4
+results/*.json
 burno
 results.json
 prompts.json

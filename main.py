@@ -14,6 +14,7 @@ CONNECT_TIMEOUT = 20
 READ_TIMEOUT = 20
 TIMEOUT = (CONNECT_TIMEOUT, READ_TIMEOUT)
 VIDEO_DIR = "out/"
+RESULTS_DIR = "results/"
 CHECK_INTERVAL_SECONDS = 30
 GENERATION_COOLDOWN_SECONDS = 30
 ERRORS_COUNT = 0    # Total image generation failures
@@ -21,7 +22,7 @@ SUCCESS_COUNT = 0   # Total image generation successes
 MAX_ERRORS = 1000   # Max errors before the script gives up and exits
 CHECK_PROCESSING_RETRIES = 2
 PROMPT_RESULTS = {}
-PROMPT_RESULTS_FILE = "results.json"
+PROMPT_RESULTS_FILE = f"{RESULTS_DIR}results_{str(uuid.uuid4())}.json"
 PROMPT_FILE = "prompts.json"
 HOSTNAME = base64.b64decode("aGFpbHVvYWkuY29t").decode('utf-8')
 API = f"https://{HOSTNAME}/api/"
@@ -253,5 +254,5 @@ if __name__ == "__main__":
             ERRORS_COUNT += 1
             logging.error(e)
         
-        logging.info(f"Sleeping {GENERATION_COOLDOWN_SECONDS} seconds before next generation... ({SUCCESS_COUNT} succeeded, {ERRORS_COUNT} failed)\n")
+        logging.info(f"Sleeping {GENERATION_COOLDOWN_SECONDS} seconds before next generation... ({SUCCESS_COUNT} succeeded, {ERRORS_COUNT} failed)\nSee {PROMPT_RESULTS_FILE} for results.\n")
         time.sleep(GENERATION_COOLDOWN_SECONDS)
