@@ -87,7 +87,8 @@ def translate_chinese_to_english(chinese_text: str):
         "上一个视频任务未完成，请稍后再试": "The previous video task was not completed, please try again later",
         "正在生成，退出后AI会继续生成": "Generating, AI will continue to generate after exiting",
         "文案内容有点问题，换个内容试试呢": "There is something wrong with the content of the copy. Let's try changing it.",
-        "视频生成中，离开当前界面不影响视频生成": "During video generation, leaving the current interface will not affect video generation"
+        "视频生成中，离开当前界面不影响视频生成": "During video generation, leaving the current interface will not affect video generation",
+        "视频内容不符合社区规范，生成失败": "The video content does not meet the community standards and generation failed."
     }
 
     if chinese_text in translation_dict:
